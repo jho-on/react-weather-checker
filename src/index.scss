@@ -1,0 +1,184 @@
+$BGColor : #FBF6D9;
+$detailColor: #F4AC36;
+$textColor: #21181B;
+
+::placeholder{
+    color: $textColor;
+    opacity: .7;
+}
+
+@font-face {
+    font-family: ComicSans;
+    src: url(assets/ComicSansMS3.ttf);
+}
+
+*{
+    box-sizing: border-box;
+
+    font-family: ComicSans, cursive, monospace;
+
+    background-color: $BGColor;
+    color: $textColor;
+}
+
+body{
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 100dvh;
+
+    .searchBlock{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        
+        max-width: fit-content;
+
+        label{
+            display: block;
+        
+            margin: 5px;
+        
+            font-size: 18px;
+        }
+
+        input{
+            margin: 5px;
+        
+            font-size: 15px;
+        }
+
+        button{
+            margin: 10px;
+        
+            width: 80px;
+            height: 40px;
+        
+            background-color: $detailColor;
+            color: $textColor;
+            border: 1px solid $textColor;
+        
+            font-size: 15px;
+        }
+    }
+
+    #weatherBlock{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        text-align: center;
+    
+        border-top: 5px solid $detailColor;
+        border-left: 5px solid $detailColor;
+        border-bottom: 5px solid $textColor;
+        border-right: 5px solid $textColor;
+    
+        width: fit-content;
+        
+        padding: 10px;
+        margin: 10px;
+
+        h2, h3{
+            margin: 0;
+        }
+
+        h3{
+            margin-bottom: 10px;
+        
+            opacity: .8;
+        }
+
+        h2{
+            font-size: 30px;
+            text-decoration: underline;
+        }
+
+        #temperature{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        
+            border-top: 2px solid $detailColor;
+            border-left: 2px solid $detailColor;
+            border-bottom: 2px solid $textColor;
+            border-right: 2px solid $textColor;
+        
+            font-size: 30px;
+        
+            opacity: 1;
+        
+            margin: 0;
+        
+            width: 150px;
+            height: 150px;
+            
+            margin: 50px;
+            border-radius: 50%;
+        }
+
+        .infoBox{
+            display: grid;
+            grid-template-columns: repeat(3, 128px);
+            gap: 10px;
+
+            div{
+                border-top: 2px solid $detailColor;
+                border-left: 2px solid $detailColor;
+                border-bottom: 2px solid $textColor;
+                border-right: 2px solid $textColor;
+            
+                width: 128px;
+                height: 128px;
+
+                display: flex;
+                flex-direction: column;
+            
+                justify-content: center;
+            }
+            p, h4{
+                margin: 0;
+            }
+        }
+    }
+}
+
+
+@media(max-width: 650px){
+    .container{
+        height: fit-content;
+
+        .searchBlock{
+            flex-direction: column;
+
+            input{
+                width: 90dvw;
+            }
+        }
+
+        #weatherBlock{
+            width: 90%;
+
+            .infoBox{
+                grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+                width: 100%;
+
+                div{
+                    width: 100%;
+                    height: 90px;
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    
+    
+    
+}
