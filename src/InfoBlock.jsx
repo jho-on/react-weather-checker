@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { info } from 'sass';
 
 function InfoBlock(props){
     return(
