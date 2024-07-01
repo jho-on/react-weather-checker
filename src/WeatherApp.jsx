@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react";
 import InfoBlock from "./InfoBlock.jsx";
 import TextInput from "./TextInput.jsx";
 
+let openWeatherAPIKEY = 'YOUR-API-KEY-HERE'
+
 function WeatherApp(){
     const [apiData, setApiData] = useState();
     const [isLoading, setIsLoading] = useState(false);
@@ -9,7 +11,7 @@ function WeatherApp(){
     async function fetchLocation(stateName){
         try{
             setIsLoading(true);
-            const response = await fetch("https://api.openweathermap.org/geo/1.0/direct?q="+stateName+"&appid=8b07b46ad1f22e415adcc1e83630643c");
+            const response = await fetch("https://api.openweathermap.org/geo/1.0/direct?q="+stateName+"&appid="+openWeatherAPIKEY);
     
             if(!response.ok){
                 throw new Error("Could Not Fetch");
@@ -25,7 +27,7 @@ function WeatherApp(){
     
     async function fetchWeather(lat, lon){
         try{
-            const response = await fetch("https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=8b07b46ad1f22e415adcc1e83630643c&units=metric");
+            const response = await fetch("https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid="+openWeatherAPIKEY+"&units=metric");
     
             if(!response.ok){
                 throw new Error("Could Not Fetch");
